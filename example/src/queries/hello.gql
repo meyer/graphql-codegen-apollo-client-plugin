@@ -1,0 +1,7 @@
+query hello($name: String) {
+  sayHello(name: $name)
+}
+
+query hello2 {
+  sayHello(name: "example")
+}

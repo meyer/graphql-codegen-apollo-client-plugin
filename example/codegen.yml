@@ -1,0 +1,10 @@
+overwrite: true
+schema: 'src/schema.gql'
+documents: 'src/queries/**/*.gql'
+generates:
+  src/client.ts:
+    plugins:
+      - 'typescript'
+      - '../../plugin'
+    config:
+      apolloClientPath: './apolloClient#apolloClient'

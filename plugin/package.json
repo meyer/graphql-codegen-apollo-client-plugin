@@ -1,0 +1,21 @@
+{
+  "name": "graphql-codegen-apollo-client-plugin",
+  "version": "0.0.1",
+  "main": "lib/plugin.js",
+  "author": "meyer <github.com@meyer.fm>",
+  "license": "Apache-2.0",
+  "scripts": {
+    "prepare": "rimraf lib && tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.14",
+    "rimraf": "^3.0.0",
+    "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "@graphql-codegen/plugin-helpers": "^1",
+    "@graphql-codegen/visitor-plugin-common": "^1",
+    "change-case": "^3",
+    "graphql": "^14"
+  }
+}
