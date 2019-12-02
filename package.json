@@ -4,6 +4,9 @@
   "author": "meyer <github.com@meyer.fm>",
   "license": "Apache-2.0",
   "private": true,
+  "resolutions": {
+    "mem": "^4.0.0"
+  },
   "workspaces": [
     "plugin",
     "example"
