@@ -10,7 +10,8 @@
   ],
   "prettier": {
     "printWidth": 120,
-    "singleQuote": true
+    "singleQuote": true,
+    "trailingComma": "es5"
   },
   "scripts": {
     "prepare": "yarn --cwd plugin prepare"

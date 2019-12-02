@@ -2,9 +2,10 @@ overwrite: true
 schema: 'src/schema.gql'
 documents: 'src/queries/**/*.gql'
 generates:
-  src/client.ts:
+  src/queries/index.ts:
     plugins:
       - 'typescript'
+      - 'typescript-operations'
       - '../../plugin'
     config:
-      apolloClientPath: './apolloClient#apolloClient'
+      apolloClientPath: '../apolloClient#apolloClient'
