@@ -1,11 +1,14 @@
 overwrite: true
-schema: 'src/schema.gql'
-documents: 'src/queries/**/*.gql'
+schema: "src/schema.gql"
+documents: "src/queries/**/*.gql"
+hooks:
+  afterAllFileWrite:
+    - prettier --write
 generates:
   src/queries/index.ts:
     plugins:
-      - 'typescript'
-      - 'typescript-operations'
-      - '../../plugin'
+      - "typescript"
+      - "typescript-operations"
+      - "../../plugin"
     config:
-      apolloClientPath: '../apolloClient#apolloClient'
+      apolloClientPath: "../apolloClient#apolloClient"

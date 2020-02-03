@@ -1,9 +1,9 @@
 import {
   ClientSideBasePluginConfig,
   ClientSideBaseVisitor,
-  LoadedFragment
+  LoadedFragment,
 } from '@graphql-codegen/visitor-plugin-common';
-import { lowerCaseFirst } from 'change-case';
+import { lowerCaseFirst } from 'lower-case-first';
 import { OperationDefinitionNode, GraphQLSchema } from 'graphql';
 import { ReactApolloRawPluginConfig } from './plugin';
 
@@ -72,7 +72,7 @@ export class ReactApolloVisitor extends ClientSideBaseVisitor<ReactApolloRawPlug
     const operationName: string = lowerCaseFirst(
       this.convertName(node.name.value, {
         suffix: '',
-        useTypesPrefix: false
+        useTypesPrefix: false,
       })
     );
 

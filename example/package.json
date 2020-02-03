@@ -6,15 +6,16 @@
   "private": true,
   "license": "Apache-2.0",
   "scripts": {
-    "test": "tsc --noEmit"
+    "test": "tsc --noEmit",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
-    "@graphql-codegen/cli": "^1.9.1",
-    "@graphql-codegen/typescript": "^1.9.1",
-    "@graphql-codegen/typescript-operations": "^1.9.1",
-    "@types/node": "^12.12.14",
-    "apollo-cache-inmemory": "^1.6.3",
-    "apollo-client": "^2.6.4",
+    "@graphql-codegen/cli": "^1.12.1",
+    "@graphql-codegen/typescript": "^1.12.1",
+    "@graphql-codegen/typescript-operations": "^1.12.1",
+    "@types/node": "^13.7.0",
+    "apollo-cache-inmemory": "^1.6.5",
+    "apollo-client": "^2.6.8",
     "apollo-link-http": "^1.5.16"
   }
 }

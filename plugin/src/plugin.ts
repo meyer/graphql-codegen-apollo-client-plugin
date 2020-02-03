@@ -9,19 +9,22 @@ export interface ReactApolloRawPluginConfig extends RawClientSideBasePluginConfi
 }
 
 const isString = (str: any): str is string => typeof str === 'string';
-const isFragment = (node: any): node is FragmentDefinitionNode => node.kind === Kind.FRAGMENT_DEFINITION;
+const isFragment = (node: any): node is FragmentDefinitionNode => node && node.kind === Kind.FRAGMENT_DEFINITION;
+const isDocumentNode = (node: any): node is DocumentNode => node && node.kind === Kind.DOCUMENT;
 
 export const plugin: pluginHelpers.PluginFunction<ReactApolloRawPluginConfig> = (schema, documents, config) => {
-  const allAst = concatAST(documents.reduce<DocumentNode[]>((prev, v) => [...prev, v.content], []));
+  const allAst = concatAST(
+    documents.reduce<Array<DocumentNode | undefined>>((prev, v) => [...prev, v.document], []).filter(isDocumentNode)
+  );
 
   const allFragments: LoadedFragment[] = [
     ...allAst.definitions.filter(isFragment).map(fragmentDef => ({
       node: fragmentDef,
       name: fragmentDef.name.value,
       onType: fragmentDef.typeCondition.name.value,
-      isExternal: false
+      isExternal: false,
     })),
-    ...(config.externalFragments || [])
+    ...(config.externalFragments || []),
   ];
 
   const visitor = new ReactApolloVisitor(schema, allFragments, config);
@@ -29,7 +32,7 @@ export const plugin: pluginHelpers.PluginFunction<ReactApolloRawPluginConfig> = 
 
   return {
     prepend: ['/* eslint-disable */', ...visitor.getImports()],
-    content: [visitor.fragments, ...visitorResult.definitions.filter(isString)].join('\n')
+    content: [visitor.fragments, ...visitorResult.definitions.filter(isString)].join('\n'),
   };
 };
 

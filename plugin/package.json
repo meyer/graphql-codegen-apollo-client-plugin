@@ -8,14 +8,14 @@
     "prepare": "rimraf lib && tsc"
   },
   "devDependencies": {
-    "@types/node": "^12.12.14",
-    "rimraf": "^3.0.0",
-    "typescript": "^3.7.2"
+    "@types/node": "^13.7.0",
+    "rimraf": "^3.0.1",
+    "typescript": "^3.7.5"
   },
   "dependencies": {
-    "@graphql-codegen/plugin-helpers": "^1",
-    "@graphql-codegen/visitor-plugin-common": "^1",
-    "change-case": "^3",
-    "graphql": "^14"
+    "@graphql-codegen/plugin-helpers": "^1.12.1",
+    "@graphql-codegen/visitor-plugin-common": "^1.12.1",
+    "graphql": "^14.6.0",
+    "lower-case-first": "^2.0.1"
   }
 }
