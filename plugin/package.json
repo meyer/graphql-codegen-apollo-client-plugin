@@ -1,6 +1,6 @@
 {
   "name": "graphql-codegen-apollo-client-plugin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib/plugin.js",
   "author": "meyer <github.com@meyer.fm>",
   "license": "Apache-2.0",
